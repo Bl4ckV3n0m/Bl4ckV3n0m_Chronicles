@@ -1,0 +1,5 @@
+psutil
+platformdirs
+speedtest
+speedtest-cli
+GPUtil

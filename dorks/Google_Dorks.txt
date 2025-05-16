@@ -1,0 +1,147 @@
+# Google Dork Listings
+## This Google Dork documentation is a curated version of the Exploit-DB Website. For more information please visit `exploit-db.com/google-hacking-database`.
+## This, at the current time, is not the full Exploit-DB list of all Google Dorks. I may update this to include them all. But not right now.
+### This is written by Bl4ck V3n0m
+
+# Category: Files Containing Passwords;
+ext:nix "BEGIN OPENSSH PRIVATE KEY"
+site:github.com "BEGIN OPENSSH PRIVATE KEY"
+intext:"aws_access_key_id" | intext:"aws_secret_access_key" filetype:json | filetype:yaml
+intitle:index of /etc/ssh
+
+# Category: Files Contaning Usernames
+"Header for logs at time" ext:log
+"START test_database" ext:log
+
+# Category: Files Containing Juicy Info
+inurl:users.php?id=
+inurl:users.php?uid=
+inurl:clients.php?id=
+inurl:clients.php?cid=
+inurl:products.php?id=
+inurl:products.php?pid=
+inurl:products.php?gid=
+inurl:admin.php?id=
+inurl:admin.php?aid=
+intext:"proftpd.conf" "index of"
+site:.edu filetype:xls "root" database
+intitle:"GlobalProtect Portal"
+intitle:"index of" setting.php
+intitle:index of /etc/openldap
+intitle:"/zircote/swagger-php"
+intext:"dhcpd.conf" "index of"
+"PHP Fatal error:" ext:log OR ext:txt
+site:uat.* * inurl:login
+site:preprod.* * inurl:login
+intitle:Index of "/etc/network" | "/etc/cni/net.d"
+"configmap.yaml" | "config.yaml" | "*-config.yaml" intitle:"index of"
+inurl:/s3.amazonaws.com ext:xml intext:index of -site:github.com
+"rbac.yaml" | "role.yaml" | "rolebinding.yaml" | "*-rbac.yaml" intitle:"index of"
+inurl:pastebin intitle:mastercard
+site:com inurl:invoice
+intitle:"Index of /confidential"
+inurl:"/wp-json/oembed/1.0/embed?url="
+inurl:* "auditing.txt"
+intext:"index of" web
+intitle:"index of" cgi.pl
+nurl:* "encryption.txt"
+intitle:"index of" env.cgi
+"Started by upstream project" ext:txt
+ext:java intext:"executeUpdate"
+(site:jsonformatter.org | site:codebeautify.org) & (intext:aws | intext:bucket | intext:password | intext:secret | intext:username)
+filetype:reg reg HKEY_CURRENT_USER SSHHOSTKEYS
+intitle:"Fleet Management Portal"
+inurl:"?url=http"
+site:.com "index of docker"
+intext:"user" filetype:php intext:"account" inurl:/admin
+site:"*.edu" intitle:"index of"|"*.db"
+intext:"userfiles" intitle:"Index Of" site:*.com.*
+site:"*.edu" intitle:"index of"|"*.json"
+intitle:"Index of" intext:"config" site:*.com.*
+intitle:index of db.py
+intext:"index of" app
+site:id filetype:sql
+intext:"administrator" filetype:txt intext:"account" inurl:/admin , intext:"administrator" filetype:txt intext:"account" allinurl:
+intitle:"phpinfo" site:*.com.* intext:"HTTP_HOST"
+intext:"index of"store
+inurl:/HappyAxis.jsp
+intext:"index of" server.conf
+site:*.* inurl:php_error.log - Sensitive information disclosure
+site:*.*.* intitle:"index of" *.pcapng
+intitle:"index of" "configuration.php"
+site:*.edu.* filetype:template
+site:*.ac.* filetype:template
+inurl:."install.appcenter.ms/orgs/"
+site:.edu intext:"robotics" inurl:/research
+inurl:typo3/index.php
+filetype:log intext:"Account Number"
+intitle:"WAMPSERVER Homepage"
+intitle:index.of /logs.txt
+inurl: /adminer.php
+intext:"index of" "pins" site:*.com
+site:*.com */admin.txt
+site:s3.amazonaws.com "index of /"
+intext:"Reportico" site:.com OR site:.org OR site:.net OR site:.gov OR site:.edu
+site:*.ac.* intitle:"index of" *.ics
+filetype:txt CLAVE*.txt OR clave*.txt
+site:*.edu.* intitle:"index of" *.ics
+inurl:"/wp-includes/user.php" -site:wordpress.org -site:github.com -site:fossies.org
+inurl:"/wp-content/debug.log"
+allinurl:"add_vhost.php?lang=english"
+inurl:signup | inurl:sign-up | inurl:register | inurl:registration
+intitle:"index of" inurl:/config/
+site:*.edu.* inurl:globalprotect
+intitle:"index of" "wp-config.php.old" | "wp-config.php.backup"
+intitle:"index of"Eventlog Analyzer
+intitle:"index of" private
+inurl:pastebin "VISA"
+intitle:"index of " *.js"
+inurl:adminpanel site:*.* -site:github.com
+site:login.*.* | site:portal.*.*
+intitle:"index of" "config.php.txt"
+inurl: edu + site: admin
+intext:"index of" "infophp()"
+intitle:"index of" "secret.txt"
+inurl:"/database.json"
+intitle:"index of" "*robots.txt" site:.edu
+intitle: "/userfiles'""
+intitle:"Index of" inurl:apache2.conf
+intitle:"index of" "site backup"
+"index of" "./" "./bitcoin"
+site:.org.in intitle:index of /wp-admin
+intext:GlobalProtect Portal inurl:/global-protect intitle:GlobalProtect Portal
+
+
+# Category: Default Dashboard Panels
+intext:"Welcome to XAMPP for *" intitle:"Welcome to XAMPP" inurl:/dashboard
+intext:apache + mariadb + php + perl intext:"welcome to xampp for *"
+intitle:"welcome to xampp"
+intitle:"Apache Struts 2.5" "index of /" -git
+
+# Category: Pages Containing Login Portals
+site:.com inurl:login | inurl:logon | inurl:sign-in | inurl:signin | inurl:portal
+site:login.*.* site:portal.*.*
+site:prod.*.* inurl:login
+site:admin.*.* inurl:login
+allintitle:"ASPECT Control Panel"
+allintitle:"CAT12CE - WebInterface"
+allintitle:"code-server login"
+inurl:"UserLogin/" intitle:"Panel"
+
+# Category: Various Online Devices
+intitle:"Webcam" inurl:WebCam.htm
+inurl:home.htm intitle:1766
+
+# Category: Vulnerable Servers
+intext:"siemens" & inurl:"/portal/portal.mwsl"
+intitle:"SSL Network Extender Login" -checkpoint.com
+inurl:"cgi-bin/koha"
+intitle:"FileCatalyst file transfer solution"
+allintitle:"ITRS OP5 Monitor"
+inurl:"wa.exe?TICKET"
+"PMB" AND ("changelog.txt" OR inurl:opac_css)
+allintitle:"Bright Cluster Manager" site:.edu
+intitle:"Welcome to iTop version" wizard
+intitle:"OpenVpn Status Monitor"
+inurl:install.php intitle:"Froxlor Server Management Panel - Installation"
+
